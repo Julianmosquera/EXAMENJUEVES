@@ -1,16 +1,30 @@
 package busqueda;
 
+import java.util.Scanner;
+
 public class Busqueda {
 
     public static void main(String[] args) {
-        int[] numeros = new int[100];
+      Scanner scn = new Scanner(System.in);
+        System.out.println("Introduce el numero de elementos del array:");
+        int numeroElementos = scn.nextInt();
+        System.out.println("Introduce el dígito:");
+        int digito = scn.nextInt();
+        
+        int[] numeros = new int[numeroElementos];
         for (int i = 0; i < numeros.length; i++) {
             numeros[i] = i * 5;
         }
         Busqueda ejemplo = new Busqueda();
-        int indice = ejemplo.busquedaBinaria(numeros, 450, 0, numeros.length - 1);
-        System.out.println("El indice del valor '450' es: " + indice);
+        int indice = ejemplo.busquedaBinaria(numeros, digito, 0, numeros.length - 1);
+        System.out.println("El indice del valor '"+digito+"' es: " + indice);
     }
+
+
+
+//        int indice = ejemplo.busquedaBinaria(numeros, 450, 0, numeros.length - 1);
+//        System.out.println("El indice del valor '450' es: " + indice);
+   
 
     public int busquedaBinaria(int[] listado, int clave, int posInicial, int posFinal) {
         int posMitad = (posFinal + posInicial) / 2;
